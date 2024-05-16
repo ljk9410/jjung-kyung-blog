@@ -1,13 +1,18 @@
-import { getPostList } from './lib/posts';
+import Link from 'next/link';
+import { getArticleList } from './lib/articles';
 
 const Home = async () => {
-	const postList = await getPostList();
+	const articleList = getArticleList();
 
 	return (
 		<main className="flex min-h-screen flex-col items-center p-12">
 			<h1>나만의 블로그</h1>
-			{postList.map((post) => {
-				return <div key={post.url}>{post.title}</div>;
+			{articleList.map((article) => {
+				return (
+					<Link key={article.slug} href={`/article/${article.slug}`}>
+						<div>{article.title}</div>
+					</Link>
+				);
 			})}
 		</main>
 	);

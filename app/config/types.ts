@@ -1,13 +1,9 @@
-export interface PostMatter {
+export interface Article {
 	title: string;
-	date: Date;
-	dateString: string;
-	thumbnail: string;
-	desc: string;
-}
-
-export interface Post extends PostMatter {
-	url: string;
 	slug: string;
+	date: Date;
+	desc: string;
+	thumbnail: string;
+	tags: string;
 	content: string;
 }
