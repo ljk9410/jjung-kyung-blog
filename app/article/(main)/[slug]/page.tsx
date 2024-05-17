@@ -19,9 +19,13 @@ const ArticleDetail = ({ params }: Props) => {
 	}
 
 	return (
-		<main>
-			<h1>{articleData.title}</h1>
-			<p>{createdAt}</p>
+		<main className="prose prose-sm flex flex-col px-4 pt-8 mx-auto sm:prose-lg sm:pt-16">
+			<header>
+				<h1 className="text-2xl m-0">{articleData.title}</h1>
+				<div className="flex flex-space">
+					<p className="text-sm">{createdAt}</p>
+				</div>
+			</header>
 			<ArticleContent content={articleData.content} />
 		</main>
 	);
