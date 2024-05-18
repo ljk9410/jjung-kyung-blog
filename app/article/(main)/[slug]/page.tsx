@@ -19,7 +19,7 @@ const ArticleDetail = ({ params }: Props) => {
 	}
 
 	return (
-		<main className="prose prose-sm flex flex-col px-4 pt-8 mx-auto sm:prose-lg sm:pt-16">
+		<main className="prose prose-sm flex flex-col px-4 pt-16 mx-auto sm:prose-lg">
 			<header>
 				<h1 className="text-2xl m-0">{articleData.title}</h1>
 				<div className="flex flex-space">
