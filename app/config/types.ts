@@ -6,4 +6,5 @@ export interface Article {
 	thumbnail: string;
 	tags: string;
 	content: string;
+	category: string;
 }

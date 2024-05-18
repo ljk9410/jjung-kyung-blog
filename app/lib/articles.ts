@@ -17,6 +17,7 @@ export const getArticlePaths = (category?: string) => {
 const parseArticle = (postPath: string): Article => {
 	const file = fs.readFileSync(postPath, 'utf8');
 	const { data, content } = matter(file);
+	const category = postPath.split(POSTS_PATH)[1].split('/')[1];
 
 	return {
 		title: data.title,
@@ -26,6 +27,7 @@ const parseArticle = (postPath: string): Article => {
 		thumbnail: data.thumbnail,
 		tags: data.tags,
 		content: content,
+		category: category,
 	};
 };
 
