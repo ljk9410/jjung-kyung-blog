@@ -11,9 +11,9 @@ const ArticleCard = ({ article }: Props) => {
 	return (
 		<Link
 			href={`/article/${article.slug}`}
-			className="flex flex-col p-4 rounded-lg bg-blue-100"
+			className="flex flex-col p-4 rounded-lg bg-blue-50 hover:bg-blue-100"
 		>
-			<div className="flex justify-between gap-4">
+			<div className="flex justify-between gap-4 sm:gap-12">
 				<div>
 					<div className="flex flex-row gap-2 mb-1">
 						{article.tags.split(',').map((tag) => (
@@ -29,20 +29,14 @@ const ArticleCard = ({ article }: Props) => {
 						{article.desc}
 					</p>
 				</div>
-				<Image
-					src={article.thumbnail}
-					width={130}
-					height={90}
-					className="hidden sm:block rounded-lg"
-					alt="Screenshots of the dashboard project showing desktop version"
-				/>
-				<Image
-					src={article.thumbnail}
-					width={100}
-					height={70}
-					className="block sm:hidden rounded-lg"
-					alt="Screenshot of the dashboard project showing mobile version"
-				/>
+				<div className="relative min-w-[100px] w-[100px] h-[75px] sm:w-[120px] sm:h-[90px]">
+					<Image
+						src={article.thumbnail}
+						fill
+						className="rounded-lg"
+						alt="Screenshots of the dashboard project showing desktop version"
+					/>
+				</div>
 			</div>
 			<div className="flex justify-between items-center mt-4 sm:mt-6">
 				<p className="text-[16px] sm:text-[18px] font-bold text-blue-500">
