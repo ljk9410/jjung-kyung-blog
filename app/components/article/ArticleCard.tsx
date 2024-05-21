@@ -21,7 +21,7 @@ const ArticleCard = ({ article }: Props) => {
 								className="text-[12px] sm:text-[14px] text-gray-600"
 								key={tag}
 							>
-								{tag}
+								#{tag}
 							</p>
 						))}
 					</div>

@@ -13,17 +13,32 @@ const ArticleDetail = ({ params }: Props) => {
 	const slug = params.slug;
 	const articleData = getArticleDataBySlug(slug);
 	const createdAt = moment(articleData?.date).format('YYYY년 MM월 DD일');
+	const tagList = articleData?.tags.split(',').map((tag) => tag) || [];
 
 	if (!articleData) {
 		return notFound();
 	}
 
 	return (
-		<main className="prose prose-sm flex flex-col px-4 pt-16 mx-auto sm:prose-lg">
+		<main className="prose prose-sm flex flex-col px-4 pt-20 pb-[100px] sm:pt-24 sm:pb-[150px] mx-auto sm:prose-lg">
 			<header>
-				<h1 className="text-2xl m-0">{articleData.title}</h1>
-				<div className="flex flex-space">
-					<p className="text-sm">{createdAt}</p>
+				<h1 className="mb-4 leading-normal sm:leading-normal sm:mb-6 font-semibold">
+					{articleData.title}
+				</h1>
+				<div className="flex flex-col items-start">
+					<div className="flex flex-row gap-2">
+						{[articleData.category, ...tagList].map((tag) => (
+							<div
+								key={tag}
+								className="px-4 py-1 text-[12px] sm:text-[14px] bg-blue-50 rounded-full"
+							>
+								#{tag}
+							</div>
+						))}
+					</div>
+					<span className="mt-4 text-[12px] sm:text-[14px] text-gray-500">
+						{createdAt}
+					</span>
 				</div>
 			</header>
 			<ArticleContent content={articleData.content} />
